@@ -1,5 +1,4 @@
 E:\PhotoAlbum\PhotoAlbum.DAL.Interfaces\bin\Debug\PhotoAlbum.DAL.Interfaces.dll
 E:\PhotoAlbum\PhotoAlbum.DAL.Interfaces\bin\Debug\PhotoAlbum.DAL.Interfaces.pdb
-E:\PhotoAlbum\PhotoAlbum.DAL.Interfaces\obj\Debug\PhotoAlbum.DAL.Interfaces.csprojResolveAssemblyReference.cache
 E:\PhotoAlbum\PhotoAlbum.DAL.Interfaces\obj\Debug\PhotoAlbum.DAL.Interfaces.dll
 E:\PhotoAlbum\PhotoAlbum.DAL.Interfaces\obj\Debug\PhotoAlbum.DAL.Interfaces.pdb

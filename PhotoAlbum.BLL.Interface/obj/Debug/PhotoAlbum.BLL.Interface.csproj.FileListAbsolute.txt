@@ -35,10 +35,7 @@ E:\PhotoAlbum\PhotoAlbum.BLL.Interface\bin\Debug\Microsoft.AspNet.Identity.Core.
 E:\PhotoAlbum\PhotoAlbum.BLL.Interface\bin\Debug\Microsoft.AspNet.Identity.Owin.dll
 E:\PhotoAlbum\PhotoAlbum.BLL.Interface\bin\Debug\Microsoft.Owin.dll
 E:\PhotoAlbum\PhotoAlbum.BLL.Interface\bin\Debug\Microsoft.Owin.Security.dll
-E:\PhotoAlbum\PhotoAlbum.BLL.Interface\bin\Debug\Microsoft.Owin.Security.OAuth.dll
 E:\PhotoAlbum\PhotoAlbum.BLL.Interface\bin\Debug\Owin.dll
-E:\PhotoAlbum\PhotoAlbum.BLL.Interface\bin\Debug\Microsoft.Owin.Security.Cookies.dll
-E:\PhotoAlbum\PhotoAlbum.BLL.Interface\bin\Debug\Newtonsoft.Json.dll
 E:\PhotoAlbum\PhotoAlbum.BLL.Interface\bin\Debug\PhotoAlbum.DAL.EF.pdb
 E:\PhotoAlbum\PhotoAlbum.BLL.Interface\bin\Debug\PhotoAlbum.DAL.Interfaces.pdb
 E:\PhotoAlbum\PhotoAlbum.BLL.Interface\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
@@ -47,9 +44,6 @@ E:\PhotoAlbum\PhotoAlbum.BLL.Interface\bin\Debug\Microsoft.AspNet.Identity.Core.
 E:\PhotoAlbum\PhotoAlbum.BLL.Interface\bin\Debug\Microsoft.AspNet.Identity.Owin.xml
 E:\PhotoAlbum\PhotoAlbum.BLL.Interface\bin\Debug\Microsoft.Owin.xml
 E:\PhotoAlbum\PhotoAlbum.BLL.Interface\bin\Debug\Microsoft.Owin.Security.xml
-E:\PhotoAlbum\PhotoAlbum.BLL.Interface\bin\Debug\Microsoft.Owin.Security.OAuth.xml
-E:\PhotoAlbum\PhotoAlbum.BLL.Interface\bin\Debug\Microsoft.Owin.Security.Cookies.xml
-E:\PhotoAlbum\PhotoAlbum.BLL.Interface\bin\Debug\Newtonsoft.Json.xml
 E:\PhotoAlbum\PhotoAlbum.BLL.Interface\obj\Debug\PhotoAlbum.BLL.Interface.csprojResolveAssemblyReference.cache
 E:\PhotoAlbum\PhotoAlbum.BLL.Interface\obj\Debug\PhotoAlbum.BLL.Interface.dll
 E:\PhotoAlbum\PhotoAlbum.BLL.Interface\obj\Debug\PhotoAlbum.BLL.Interface.pdb
