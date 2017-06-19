@@ -16,7 +16,7 @@ else
                     
                        data-autocomplete-source="@Url.Action("Autocomplete", "Home")" data-autocomplete-url="@Url.Action("Autocomplete", "Home")"/>
                 <div class="input-group-btn" style=" margin-top: 7px;">
-                    <button class="btn btn-default" name="search" id="search" disabled type="submit" style=" margin-top: 7px;">
+                    <button class="btn btn-default" name="search" id="search" type="submit" style=" margin-top: 7px;">
                         <i class="glyphicon glyphicon-search"></i>
                     </button>
                 </div>
@@ -59,12 +59,6 @@ else
         //        });
         //    });
         //});
-
-        $(function() {
-            $("searchForm").on('change input paste keyup keydon', 'input', function(e) {
-                $("#search").prop('disabled', !$("#searchString").val());
-            });
-        });
 
         $(document).ready(function () { 
             $('*[data-autocomplete-url]') 
