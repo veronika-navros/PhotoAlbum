@@ -286,3 +286,11 @@ E:\PhotoAlbum\PhotoAlbum.WEB\bin\sv-SE\Kendo.Mvc.resources.dll
 E:\PhotoAlbum\PhotoAlbum.WEB\bin\tr-TR\Kendo.Mvc.resources.dll
 E:\PhotoAlbum\PhotoAlbum.WEB\bin\uk-UA\Kendo.Mvc.resources.dll
 E:\PhotoAlbum\PhotoAlbum.WEB\bin\zh-CN\Kendo.Mvc.resources.dll
+E:\PhotoAlbum\PhotoAlbum.WEB\bin\NLog.dll
+E:\PhotoAlbum\PhotoAlbum.WEB\bin\System.Web.Http.dll
+E:\PhotoAlbum\PhotoAlbum.WEB\bin\System.Net.Http.Formatting.dll
+E:\PhotoAlbum\PhotoAlbum.WEB\bin\NLog.xml
+E:\PhotoAlbum\PhotoAlbum.WEB\bin\System.Web.Http.xml
+E:\PhotoAlbum\PhotoAlbum.WEB\bin\System.Net.Http.Formatting.xml
+E:\PhotoAlbum\PhotoAlbum.WEB\bin\ru\System.Web.Http.resources.dll
+E:\PhotoAlbum\PhotoAlbum.WEB\bin\ru\System.Net.Http.Formatting.resources.dll
