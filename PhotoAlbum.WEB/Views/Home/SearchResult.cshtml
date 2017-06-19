@@ -1,0 +1,52 @@
+﻿@using PagedList
+@using PagedList.Mvc
+@model IPagedList<PhotoAlbum.WEB.Models.SearchUserModel>
+
+@{
+    ViewBag.Title = "SearcResult";
+}
+
+<style>
+    .pagination > .active > a,
+    .pagination > .active > span,
+    .pagination > .active > a:hover,
+    .pagination > .active > span:hover,
+    .pagination > .active > a:focus,
+    .pagination > .active > span:focus {
+        z-index: 2;
+        color: #ffffff;
+        cursor: default;
+        background-color: black;
+        border-color: gray;
+    }
+</style>
+
+
+<center>
+    @if (!Model.Any())
+    {
+        <h1 style="margin: 0 auto; margin-left: 80px;">Sorry, we can't find any users according to your request :(</h1>
+    }
+    else
+    {
+        var userString = Model.Count() == 1 ? "user" : "users";
+        <h2 style="color: saddlebrown">We have found @Model.Count() @userString</h2>
+        <div class="list-group" style="width: 500px; background-color: rgba(255, 255, 255, 0.3);">
+            @foreach (var item in Model)
+            {
+                using (Html.BeginForm("UserProfile", "Home", new{userId = item.Id, pictureId = 0}, FormMethod.Post, new { id = $"viewProfile{item.Id}", Style = "background-color: rgba(255, 255, 255, 0.3);" }))
+                {
+                    string id = "viewProfile" + item.Id;
+                    <a href="javascript:document.getElementById('@id').submit()" class="list-group-item" style="background-color: rgba(255, 255, 255, 0.3);">
+                        @Html.Raw("<img class='img-circle' alt='Avatar'  style='width:50px; height:50px; display: inline; opacity: 1;' src=\"data:image/jpeg;base64,"
+                                  + Convert.ToBase64String(item.Photo) + "\" />")
+                        <h3 style="color: saddlebrown; margin-bottom: 0; margin-top: 0; display: inline; opacity: 1;"><b>@item.Name</b></h3>
+                    </a>
+                }
+            }
+        </div>
+        
+        <h4 style="color: black; margin-bottom: 0;">Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount</h4>
+        @Html.PagedListPager(Model, page => Url.Action("Search", "Home", new{ page, searchString = ViewBag.SearchString }))
+    }
+</center>

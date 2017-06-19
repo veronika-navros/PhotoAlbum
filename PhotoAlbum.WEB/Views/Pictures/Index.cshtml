@@ -1,0 +1,76 @@
+﻿@using PagedList
+@using PagedList.Mvc
+@model IPagedList<PhotoAlbum.WEB.Models.IndexPictureViewModel>
+    
+<style>
+    .pagination > .active > a,
+    .pagination > .active > span,
+    .pagination > .active > a:hover,
+    .pagination > .active > span:hover,
+    .pagination > .active > a:focus,
+    .pagination > .active > span:focus {
+        z-index: 2;
+        color: #ffffff;
+        cursor: default;
+        background-color: black;
+        border-color: gray;
+    }
+
+</style>
+
+@{
+    int counter = 0;
+    if (ReferenceEquals(ViewBag.IsBanListPage, null))
+    {
+        ViewBag.IsBanListPage = false;
+    }
+    string action = "UserProfile";
+    string controller = "Home";
+    if (ViewBag.IsBanListPage)
+    {
+        action = "GetBanList";
+        controller = "Pictures";
+    }
+}
+
+<div id="photos" class="container-fluid text-center" style="margin-top: 15px;">
+    @for (int i = 0; i < 3 && counter < Model.Count(); i++)
+    {
+        <div class="row slideanim">
+            @for (int j = 0; j < 3 && counter < Model.Count(); j++)
+            {
+                <div class="col-sm-4">
+                    @*<a class="img_link" id="@id" href="/Pictures/Details" onclick="javascript: func(); return false;">
+                        @Html.Raw("<img class='img-thumbnail' alt='" + @Model[counter].Id +"' style='width:330px; height:330px;' src=\"data:image/jpeg;base64,"
+                                  + Convert.ToBase64String(Model[counter++].Image) + "\" />")
+                    </a>*@
+
+                    @Html.Raw("<a class=\"img_link\" href=\"" + @Url.Action(action, controller, new { pictureId = Model[counter].Id, page = Model.PageNumber, userId = ViewBag.UserId}) 
+                              + "\" ><img class='img-thumbnail' alt='" + @Model[counter].Id +"' style='width:330px; height:330px;' src=\"data:image/jpeg;base64,"
+                              + Convert.ToBase64String(Model[counter++].Image) + "\" /></a>")
+                </div>
+            }
+        </div>
+        <br><br>
+    }
+</div>
+<center>
+    <h4 style="color: black; margin-bottom: 0;">Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount</h4>
+    @Html.PagedListPager(Model, page => Url.Action("UserProfile", "Home", new{ page, userId = ViewBag.UserId }))
+</center>
+
+@section Scripts
+{
+    <script type="text/javascript">
+        function func() {
+            var value = $('#photo2').val().alt();
+           
+            var url = '@Url.Action("UserProfile", "Home", new { photoId = -1 })';
+            url = url.replace(-1, value);
+            $('#index').attr('style', "display: none");
+            $("#results").load(url);
+            return false;
+        }
+    </script>
+}
+

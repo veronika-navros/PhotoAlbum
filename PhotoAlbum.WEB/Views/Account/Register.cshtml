@@ -1,0 +1,88 @@
+﻿@model PhotoAlbum.WEB.Models.RegisterViewModel
+
+@{
+    ViewBag.Title = "Register";
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <h1 style="color:saddlebrown; margin-left: 450px">Register</h1>
+
+    <center style="margin: 0 auto; margin-left: 80px;">
+        
+        <div class="row">
+        @Html.ValidationSummary(true, "", new {@class = "text-danger"})
+        <div class="form-group">
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.FirstName, new {htmlAttributes = new { placeholder = "First Name", @class = "form-control"}})
+                @Html.ValidationMessageFor(model => model.FirstName, "", new {@class = "text-danger"})
+            </div>
+        </div>
+        <br/>
+
+        <div class="form-group">
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.LastName, new {htmlAttributes = new {Style = "margin-top: 10px;", placeholder = "Last Name", @class = "form-control"}})
+                @Html.ValidationMessageFor(model => model.LastName, "", new {@class = "text-danger"})
+            </div>
+        </div>
+        <br/>
+
+        <div class="form-group">
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Info, new {htmlAttributes = new {Style = "resize: none; margin-top: 10px;", placeholder = "Information", @class = "form-control"}})
+                @Html.ValidationMessageFor(model => model.Info, "", new {@class = "text-danger"})
+            </div>
+        </div>
+        <br/>
+
+        <div class="form-group">
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Email, new {htmlAttributes = new {Style = "margin-top: 10px;", placeholder = "E-mail", @class = "form-control"}})
+                @Html.ValidationMessageFor(model => model.Email, "", new {@class = "text-danger"})
+            </div>
+        </div>
+        <br/>
+
+        <div class="form-group">
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Password, new {htmlAttributes = new {Style = "margin-top: 10px;", placeholder = "Password", @class = "form-control"}})
+                @Html.ValidationMessageFor(model => model.Password, "", new {@class = "text-danger"})
+            </div>
+        </div>
+        <br/>
+
+        <div class="form-group">
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.ConfirmPassword, new {htmlAttributes = new {Style = "margin-top: 10px;", placeholder = "Confirm password", @class = "form-control"}})
+                @Html.ValidationMessageFor(model => model.ConfirmPassword, "", new {@class = "text-danger"})
+            </div>
+        </div>
+        <br/>
+
+        <div class="form-group">
+            <div class="col-md-10">
+                @Html.TextBoxFor(m => m.Captcha, new {Style = "margin-top: 10px;", placeholder = "Enter the code below", @class = "form-control"})
+                @Html.ValidationMessageFor(m => m.Password, null, new {@class = "text-danger"})
+                <div class="img-responsive">
+                    <img src="@Url.Action("Captcha", "Account")" alt="captcha" style="margin-top: 10px; margin-bottom: 10px"/>
+                </div>
+            </div>
+        </div>
+        <br/>
+
+        <div class="form-group">
+            <div class="col-md-10">
+                <input type="submit" value="Register" class="btn btn-default btn-primary" style="color: white; border-color: saddlebrown; background-color: saddlebrown; width: 400px;"/>
+            </div>
+        </div>
+        <br/>
+        </div>
+    </center>
+}
+<div class="row">
+    <h3 style="color: sienna; margin-left: 400px;">Already have an account? </h3>
+    <h3><u>@Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new { Style = "color: black; margin-left: 500px; margin-top: 0;" })</u></h3>
+</div>

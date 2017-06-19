@@ -1,0 +1,58 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26430.6
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhotoAlbum.DAL.EF", "PhotoAlbum.DAL.EF\PhotoAlbum.DAL.EF.csproj", "{38ED7159-F608-4929-B8DE-D50AE5E24774}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhotoAlbum.DAL.Interfaces", "PhotoAlbum.DAL.Interfaces\PhotoAlbum.DAL.Interfaces.csproj", "{096E3AEB-2BFC-4C15-9990-BD129361AE95}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhotoAlbum.DAL", "PhotoAlbum.DAL\PhotoAlbum.DAL.csproj", "{00EEA7D0-32FD-4051-849B-145358355D3F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhotoAlbum.BLL.Interface", "PhotoAlbum.BLL.Interface\PhotoAlbum.BLL.Interface.csproj", "{C5C15D8A-0978-4FAD-8925-555653B6FB8D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhotoAlbum.BLL", "PhotoAlbum.BLL\PhotoAlbum.BLL.csproj", "{FF2DD3FC-8B34-4D47-BCD9-457D56C54ED0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhotoAlbum.WEB", "PhotoAlbum.WEB\PhotoAlbum.WEB.csproj", "{0D253B50-4D88-4441-8552-32DA6E585BDF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhotoAlbum.Util", "PhotoAlbum.Util\PhotoAlbum.Util.csproj", "{1805728E-714F-4FE9-BF3E-2BD7EC575EE6}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{38ED7159-F608-4929-B8DE-D50AE5E24774}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{38ED7159-F608-4929-B8DE-D50AE5E24774}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{38ED7159-F608-4929-B8DE-D50AE5E24774}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{38ED7159-F608-4929-B8DE-D50AE5E24774}.Release|Any CPU.Build.0 = Release|Any CPU
+		{096E3AEB-2BFC-4C15-9990-BD129361AE95}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{096E3AEB-2BFC-4C15-9990-BD129361AE95}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{096E3AEB-2BFC-4C15-9990-BD129361AE95}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{096E3AEB-2BFC-4C15-9990-BD129361AE95}.Release|Any CPU.Build.0 = Release|Any CPU
+		{00EEA7D0-32FD-4051-849B-145358355D3F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{00EEA7D0-32FD-4051-849B-145358355D3F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{00EEA7D0-32FD-4051-849B-145358355D3F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{00EEA7D0-32FD-4051-849B-145358355D3F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C5C15D8A-0978-4FAD-8925-555653B6FB8D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C5C15D8A-0978-4FAD-8925-555653B6FB8D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C5C15D8A-0978-4FAD-8925-555653B6FB8D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C5C15D8A-0978-4FAD-8925-555653B6FB8D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FF2DD3FC-8B34-4D47-BCD9-457D56C54ED0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FF2DD3FC-8B34-4D47-BCD9-457D56C54ED0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FF2DD3FC-8B34-4D47-BCD9-457D56C54ED0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FF2DD3FC-8B34-4D47-BCD9-457D56C54ED0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0D253B50-4D88-4441-8552-32DA6E585BDF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0D253B50-4D88-4441-8552-32DA6E585BDF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0D253B50-4D88-4441-8552-32DA6E585BDF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0D253B50-4D88-4441-8552-32DA6E585BDF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1805728E-714F-4FE9-BF3E-2BD7EC575EE6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1805728E-714F-4FE9-BF3E-2BD7EC575EE6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1805728E-714F-4FE9-BF3E-2BD7EC575EE6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1805728E-714F-4FE9-BF3E-2BD7EC575EE6}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,31 @@
+﻿@using PagedList
+@using PhotoAlbum.WEB.Models
+@model IPagedList<IndexPictureViewModel>
+
+@{
+    ViewBag.Title = "BanList";
+}
+
+<center>
+    @if (!Model.Any())
+    {
+        <center>
+            <h1 style="color: saddlebrown; border-color: black">No photos to ban :)</h1>
+        </center>
+    }
+    else
+    {
+        <h2 style="color: saddlebrown;">These photos were marked as inadmissible</h2>
+        <div id="results" name="results">
+            @if (ReferenceEquals(ViewBag.Model, null) || ViewBag.Model == null || ViewBag.Model.Id == 0)
+            {
+                @Html.Partial("Index", Model)
+            }
+            else
+            {
+                @Html.Partial("~/Views/Pictures/Details.cshtml", (DetailsPictureViewModel) ViewBag.Model)
+            }
+        </div>  
+    }
+</center>
+

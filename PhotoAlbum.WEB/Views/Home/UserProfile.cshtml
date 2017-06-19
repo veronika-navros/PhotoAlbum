@@ -1,0 +1,55 @@
+﻿@using Microsoft.AspNet.Identity
+@using PhotoAlbum.WEB.Models
+@model ProfileViewModel
+
+@{
+    ViewBag.Title = "Profile";
+}
+
+
+<div class="row" style="margin-top: 15px;">
+    <div class="col-sm-3">
+        @Html.Raw("<img class='img-circle' alt='Avatar'  style='width:270px; height:270px;' src=\"data:image/jpeg;base64,"
+                  + Convert.ToBase64String(Model.Avatar) + "\" />")
+    </div>
+    <div class="col-sm-9">
+        <h2>@Html.ActionLink(Model.Name, "UserProfile", new { id = Model.Id }, new {Style = "color: saddlebrown;" })</h2>
+        @if (User.Identity.GetUserId<int>() == Model.Id)
+        {
+            @Html.ActionLink("+ Add new photo", "Upload", "Pictures", new {id = Model.Id},
+                new {Style = "margin-top: 5px; margin-right: 15px; background-color: gray; border-color: gray", @class = "btn btn-info btn-lg"})
+            if (Model.HasAvatar)
+            {
+                @Html.ActionLink("Delete profile photo", "SetProfilePhoto", "Home", null,
+                    new {Style = "margin-top: 5px; background-color: gray; border-color: gray", @class = "btn btn-info btn-lg"})
+            }
+        }
+        @*else
+        {
+            @Html.ActionLink("Follow", "Follow", "Profile", new { id = Model.Id },
+                new { Style = "margin-top: 20px;", @class = "btn btn-info btn-lg" })
+        }*@
+    <h4 style="color: black; text-shadow: white 1px 1px 0, white -1px -1px 0, white -1px 1px 0, white 1px -1px 0;">@Html.DisplayFor(model => model.Info)</h4>
+    </div>
+</div>
+
+@if (!Model.Photos.Any() || Model.Photos.Count == 0)
+{
+    <center>
+        <h1 style="color: saddlebrown; border-color: black">User has no photos :(</h1>
+    </center>
+}
+else
+{
+    <div id="results" name="results">
+        @if (ReferenceEquals(ViewBag.Model, null) || ViewBag.Model == null || ViewBag.Model.Id == 0)
+        {
+            ViewBag.UserId = Model.Id;
+            @Html.Partial("~/Views/Pictures/Index.cshtml", Model.Photos)
+        }
+        else
+        {
+            @Html.Partial("~/Views/Pictures/Details.cshtml", (DetailsPictureViewModel) ViewBag.Model)
+        }
+    </div>
+}

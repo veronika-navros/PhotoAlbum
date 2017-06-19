@@ -1,0 +1,8 @@
+﻿@model PhotoAlbum.WEB.Models.DetailsPictureViewModel
+@{
+    string likeClass = Model.IsLiked ? "glyphicon-heart" : "glyphicon-heart-empty";
+}
+
+<button type="submit" name="likeButton" id="like_btn" value="@Model.Id @Model.IsLiked.ToString()" 
+        class="btn btn-primary glyphicon @likeClass" style="margin-left: 2%; background-color: gray; border-color: gray; color: red;"></button>
+<span class="badge" style="background-color: black">@Model.LikesAmount users like it</span>

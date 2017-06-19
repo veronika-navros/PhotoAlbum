@@ -1,0 +1,54 @@
+﻿@model PhotoAlbum.WEB.Models.LoginViewModel
+
+@{
+    ViewBag.Title = "Login";
+}
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+
+    <h1 style="color:saddlebrown; margin-left: 460px; margin-top: 130px;">Log In</h1>
+
+    <center style="margin: 0 auto; margin-left: 80px;">
+        <div class="row">
+        @Html.ValidationSummary(true, "", new {@class = "text-danger"})
+
+        <div class="form-group">
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Email, new {htmlAttributes = new {Style = "margin-top: 10px;", placeholder = "E-mail", @class = "form-control"}})
+                @Html.ValidationMessageFor(model => model.Email, "", new {@class = "text-danger"})
+            </div>
+        </div>
+        <br/>
+
+        <div class="form-group">
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Password, new {htmlAttributes = new {Style = "margin-top: 10px;", placeholder = "Password", @class = "form-control"}})
+                @Html.ValidationMessageFor(model => model.Password, "", new {@class = "text-danger"})
+            </div>
+        </div>
+        <br/>
+
+        <div class="form-group">
+            <div class="col-md-10">
+                <div class="checkbox">
+                    @Html.EditorFor(model => model.RememberMe, new {Style = "margin-top: 10px;"})
+                    @Html.LabelFor(model => model.RememberMe, new{Style = "color: saddlebrown;"})
+                </div>
+            </div>
+        </div>
+        <br/>
+
+        <div class="form-group">
+            <div class="col-md-10">
+                <input type="submit" value="Log in" class="btn btn-default btn-primary" style="color: white; border-color: saddlebrown; background-color: saddlebrown; width: 400px;"/>
+            </div>
+        </div>
+        </div>
+    </center>
+}
+<div class="row" style="margin-bottom: 170px;">
+    <h3 style="color: sienna; margin-left: 400px;">Don't have an account yet?</h3>
+    <h3><u>@Html.ActionLink("Register", "Register", "Account", routeValues: null, htmlAttributes: new { Style = "color: black; margin-left: 490px;" })</u></h3>
+</div>

@@ -1,0 +1,49 @@
+﻿    <script type="text/javascript">
+    
+</script>
+
+
+<div id="imageModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Add new photo</h4>
+            </div>
+            <div class="modal-body">
+                <form action="/Pictures/Save" id="form" method="post">
+                    <a class="btn btn-lg" style="display: inline">
+                        <span>Choose photo</span>
+                        <input type="file" id="loadImage" name="loadImage" value="Choose photo" accept="image/*" onchange="readURL(this);" />
+                    </a>
+                    <button class="btn btn-lg" style="display: inline" data-deg="-90">Rotate Left</button>
+                    <button class="btn btn-lg" data-deg="90">Rotate Right</button>
+
+                    <div style="width: 270px; height: 270px; border-color: black; background-color: silver" id="upload-demo">
+                        <h2 style="margin-top: 125px; margin-bottom: 125px; align-content: center; color: gray">Upload photo</h2>
+                    </div>
+                    <input type="hidden" id="imagebase64" name="imagebase64">
+                    <button type="button" class="btn btn-default save" data-dismiss="modal" id="save" name="save">Save</button>
+                </form>
+                @*@using (Html.BeginForm("Save", "Pictures", FormMethod.Post, new {id = "saveForm"}))
+                    {
+                        <div id="upload-demo"></div>
+                        <input type="hidden" id="imagebase64" name="imagebase64">
+                    }*@
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+
+
+    function removeFile() {
+        $('#img').attr('src', "").width(0).height(0).attr('style', "display: none;");
+        @*@path = @defaultPath;*@
+        $('#deleteButton').attr('style', "display: none;");
+        $('#defaultImg').attr('style', "");
+        $('#img').attr('style', "display: none;");
+    }
+</script>

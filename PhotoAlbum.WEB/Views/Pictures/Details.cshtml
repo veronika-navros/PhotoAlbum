@@ -1,0 +1,91 @@
+﻿@using Microsoft.AspNet.Identity
+@model PhotoAlbum.WEB.Models.DetailsPictureViewModel
+
+@{
+    if (ReferenceEquals(ViewBag.IsBanListPage, null))
+    {
+        ViewBag.IsBanListPage = false;
+    }
+    var day = Model.DateTime.Day > 9 ? Model.DateTime.Day.ToString() : "0" + Model.DateTime.Day;
+    var month = Model.DateTime.Month > 9 ? Model.DateTime.Month.ToString() : "0" + Model.DateTime.Month;
+    var hour = Model.DateTime.Hour > 9 ? Model.DateTime.Hour.ToString() : "0" + Model.DateTime.Hour;
+    var minute = Model.DateTime.Minute > 9 ? Model.DateTime.Minute.ToString() : "0" + Model.DateTime.Minute;
+    var time = day + "." + month + " at " + hour + ":" + minute;
+}
+
+<div class="row">
+    <div class="col-sm-6" style="margin-top: 40px; float: right">
+        @Html.ActionLink("Return to profile", "UserProfile", "Home", routeValues: new { page = ViewBag.Page, pictureId = 0, userId = Model.UserId }, htmlAttributes: new { @class = "btn btn-default btn-primary", Style = "color: white; border-color: saddlebrown; background-color: saddlebrown; width: 400px;" })
+        <h3 style="text-shadow: white 1px 1px 0, white -1px -1px 0, white -1px 1px 0, white 1px -1px 0;">
+            <b>
+                Posted @time
+                @if (!ReferenceEquals(Model.Description, null))
+                {
+                    @Html.DisplayFor(model => model.Description)
+                }
+            </b>
+        </h3>
+                @if (Model.UserId == User.Identity.GetUserId<int>())
+                {
+                    @Html.ActionLink("Set as profile photo", "SetProfilePhoto", "Home",
+                routeValues: new { id = Model.Id, pageNumber = ViewBag.Page },
+                htmlAttributes: new
+                {
+                    @class = "btn btn-default btn-primary",
+                    Style = "margin-right: 10px; margin-top: 10px; color: white; border-color: saddlebrown; background-color: saddlebrown; width: 190px;"
+                })
+                }
+                @if (User.IsInRole("admin"))
+                {
+                    @Html.ActionLink("Reject a complaint", "RejectComplaint", "Pictures",
+                routeValues: new { pictureId = Model.Id, uploaderId = Model.UserId, pageNumber = ViewBag.PageNumber, returnToBanList = ViewBag.IsBanListPage },
+                htmlAttributes: new
+                {
+                    @class = "btn btn-default btn-primary",
+                    Style = "margin-right: 10px; margin-top: 10px; color: white; border-color: saddlebrown; background-color: saddlebrown; width: 190px;"
+                })
+                }
+                @if (User.IsInRole("admin") || Model.UserId == User.Identity.GetUserId<int>())
+                {
+                    @Html.ActionLink("Delete photo", "DeletePhoto", "Home",
+                routeValues: new { id = Model.Id, pageNumber = ViewBag.Page, uploaderId = Model.UserId, returnToBanList = ViewBag.IsBanListPage },
+                htmlAttributes: new
+                {
+                    @class = "btn btn-default btn-primary",
+                    Style = "margin-left: 10px; margin-top: 10px; color: white; border-color: saddlebrown; background-color: red; width: 190px;"
+                })
+                }
+                @if (User.IsInRole("user") && User.Identity.GetUserId<int>() != Model.UserId)
+                {
+                    @Html.ActionLink("Send a complaint about the photo", "Complain", "Pictures",
+                routeValues: new { pictureId = Model.Id, pageNumber = ViewBag.Page, uploaderId = Model.UserId },
+                htmlAttributes: new
+                {
+                    @class = "btn btn-default btn-primary",
+                    Style = "margin-top: 10px; color: white; border-color: saddlebrown; background-color: red; width: 400px;",
+                    onclick = "javascript:alert('Your complaint was sent to administartor');return true;"
+                })
+                }
+            </div>
+    <div class="col-sm-6" style="float: left">
+        <div class="row">
+            @using (Ajax.BeginForm("Like", "Pictures", new AjaxOptions
+            {
+                HttpMethod = "POST",
+                UpdateTargetId = Model.Id.ToString(),
+            }))
+            {
+                <div class="form-group text-center" style="margin-top: 2%">
+                    @Html.Raw("<img class='img-thumbnail' alt='Photo'  style='width: 500px; height: 500px;' src=\"data:image/jpeg;base64,"
+                              + Convert.ToBase64String(Model.Image) + "\" />")
+                    @if (User.IsInRole("user"))
+                    {
+                        <div id="@Model.Id">
+                            @{ Html.RenderPartial("~/Views/Home/LikePartial.cshtml", Model); }
+                        </div>
+                    }
+                </div>
+            }
+        </div>
+    </div>
+</div>

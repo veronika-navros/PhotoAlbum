@@ -1,0 +1,118 @@
+﻿@model PhotoAlbum.WEB.Models.UploadPictureViewModel
+
+@{
+    ViewBag.Title = "Upload";
+}
+
+@using (Html.BeginForm("Save", "Pictures", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+
+    <h1 style="color:saddlebrown; margin-left: 410px">Upload new photo</h1>
+
+    <center style="margin: 0 auto;">
+        
+        <div class="row">
+            <input type="button" id="loadButton" class="btn btn-default btn-primary" 
+                   style="color: white; border-color: saddlebrown; background-color: saddlebrown; width: 270px;" 
+                   value="Choose photo" onclick="document.getElementById('loadImage').click();"/>
+            <input type="file" style="display: none;" id="loadImage" name="loadImage" onchange="readURL(this);"/> &emsp;
+            @*<button class="btn btn-lg" style="display: inline" data-deg="-90">Rotate Left</button>
+            <button class="btn btn-lg" data-deg="90">Rotate Right</button>*@
+        </div>
+        <br />
+        <div class="row">
+            @using (Html.BeginForm("Save", "Pictures", FormMethod.Post, new {id = "form"}))
+            {
+                <div style="width: 330px; height: 330px; border-color: black; background-color: silver" id="upload-demo">
+                    <img src="/Images/upload-photo.png" id="img" name="img" alt=""/>
+                </div>
+                <input type="hidden" id="imagebase64" name="imagebase64">
+                <br/>
+                <div class="form-group" style="margin-left: 165px;" width="330">
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Description, new { htmlAttributes = new { Style = "resize: none;", id = "description", name = "description", placeholder = "Add description to photo", @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Description, "", new {@class = "text-danger"})
+                    </div>
+                </div><br/>
+                <input type="submit" id="saveButton" disabled name="saveButton" value="Save" style="color: white; border-color: saddlebrown; background-color: saddlebrown; width: 400px; margin-top: 10px;" class="btn btn-default btn-primary" />
+                
+            }
+        </div>
+        
+           
+        
+        
+        
+      
+    </center>
+}
+
+<script type="text/javascript">
+    function readURL(input) {
+        var type = ['image/bmp', 'image/jpg', 'image/jpeg', 'image/png'];
+        var file = input.files[0];
+        var size = 2000000;
+        function errMsg(x) {
+            alert(x + ' error while uploading picture');
+        }
+        if (type.indexOf(file.type) == -1) {
+            errMsg('You may load only .bmp, .jpg, .jpeg and .png pictures');
+            return false;
+        } else if (file.size > size) {
+            errMsg('Size of the photo can\'t be larger than 2 Mb');
+            return false;
+        } else if (input.files && input.files[0]) {
+            var reader = new FileReader();
+
+            var parts = file.name.split('.');
+            var ext = parts.pop();
+
+            var urlString;
+            reader.onload = function (e) {
+                urlString = e.target.result;
+                document.getElementById('saveButton').disabled = false;
+                $('#img')
+                    .attr('src', e.target.result)
+                    .width(330).height(330);
+
+                //var uploadCrop = $('#upload-demo').croppie({
+                //    enableExif: true,
+                //    viewport: {
+                //        width: 330,
+                //        height: 330,
+                //        type: 'square'
+                //    },
+                //    boundary: {
+                //        width: 340,
+                //        height: 340
+                //    },
+                //    showZoomer: false,
+                //    enableOrientation: true
+                //});
+
+                //uploadCrop.croppie('bind', {url: urlString});
+                
+            };
+
+           
+
+
+            reader.readAsDataURL(input.files[0]);
+            //$('#saveButton').on('click', function (ev) {
+            //    uploadCrop.croppie('result', {
+            //        type: 'canvas',
+            //        size: 'viewport'
+            //    }).then(function (resp) {
+            //        reader.readAsDataURL(resp);
+            //        $('#imagebase64').val(resp);
+            //        $('#saveButton').submit();
+            //    });
+                    
+            //});
+        }
+    }
+
+    
+</script>
+
